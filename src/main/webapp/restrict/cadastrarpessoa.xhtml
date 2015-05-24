@@ -48,6 +48,8 @@
                                 <p:calendar id="dataNascimento" value="#{mbPessoa.pessoa.dataDeNascimento}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyy" />
+                                
+                          
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
@@ -79,7 +81,7 @@
                                 </p:selectOneMenu>
 
                                 <h:outputLabel for="idTipoLogradouro" value="Tipo de Logradouro.:"/>
-                                <p:selectOneMenu id="idTipoLogradouro" value="#{mbPessoa.endereco.tipoEndereco.idTipoEndereco}">
+                                <p:selectOneMenu id="idTipoLogradouro" value="#{mbPessoa.endereco.tipologradouro.idTipoLogradouro}">
                                     <f:selectItems value="#{bbTipoLogradouro.tipoLogradouros}" var="tipoLogradouro"
                                                    itemValue="#{tipoLogradouro.idTipoLogradouro}" itemLabel="#{tipoLogradouro.descricaoTipoLogradouro}"/>
                                 </p:selectOneMenu>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<!--     xmlns:sec="http://www.springframework.org/security/facelets/tags"-->
+
+    <h:head>
+        <title>Portifólio em Grupo ADS UNOPAR</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../resources/restrict/css/portifolio.css" rel="stylesheet" type="text/css"/>
+        <link href="./../resources/restrict/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    </h:head>
+
+    <h:body>
+
+        <div id="topo">
+            <a href="http://www.google.com.br/"> <div id="logotipo"></div></a>
+        </div>
+        <div id="menu">
+            <h:form>
+                <p:menubar styleClass="labelmenu">
+                    <p:submenu label="Cadastros">
+                        <p:menuitem value="Cidades" url="/restrict/cadastrarcidade.faces"/>
+                        <p:menuitem value="Pessoas" url="/restrict/cadastrarpessoa.faces"/>
+                        </p:submenu>
+                        <p:submenu label="Consultas"></p:submenu>
+                </p:menubar>
+            </h:form>
+        </div>
+        <div id="tarefas">
+            <ui:insert name="tarefas"></ui:insert>
+        </div>
+
+        <div id="rodape">
+            <a href="http://www.google.com.br/"> <img src="./../resources/restrict/images/Capturar.PNG" align="center"/></a>
+
+        <div id="copyright">
+           <a href="http://www.google.com.br/" >Não tem créditos / No Donuts for owner </a>
+        </div>
+        </div>
+
+    </h:body>
+
+</html>

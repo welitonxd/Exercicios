@@ -30,23 +30,38 @@
         </dependency>
  
         <!--DEPENDENCIAS SPRINT SECURITY-->
-        <dependency>
+        
+        
+    
+        
+          <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>facelets-taglib-jsf20-spring</artifactId>
-            <version>0.5</version>
+            <artifactId>spring-security-config</artifactId>
+            <version>3.0.5.RELEASE</version>
         </dependency>
         
-        <dependency>
+         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>4.0.1.RELEASE</version>
-            <exclusions>
+            <artifactId>spring-security-core</artifactId>
+            <version>3.0.5.RELEASE</version>
+             <exclusions>
                 <exclusion>
-                    <artifactId>spring-security-acl</artifactId>
-                    <groupId>org.springframeworks.security</groupId>
+                    <artifactId>aspectjrt</artifactId>
+                    <groupId>org.aspectj</groupId>
+                </exclusion>
+                      <exclusion>
+                    <artifactId>aspectjweaver</artifactId>
+                    <groupId>org.aspectj</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
+        
+         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+      
         
         
 
@@ -71,13 +86,7 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
-        
-        <dependency>
-            <groupId>org.aopalliance</groupId>
-            <artifactId>com.springsource.org.aopaliance</artifactId>
-            <version>1.0.0</version>
-        
-        </dependency>
+      
         
         
     </dependencies>

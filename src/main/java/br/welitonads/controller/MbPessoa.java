@@ -60,10 +60,9 @@ public class MbPessoa implements Serializable {
     }
 
     private void insertPessoa() {
-        pessoa.setSenha(ConverterSHA1.cipher(pessoa.getSenha()));//converter a senha e codificar para o banco de dados.
-        if (pessoa.getSenha() == null ? confereSenha == null : pessoa.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
-            pessoa.setPermissao("ROLE_ADMIN");
-            pessoaDAO().save(pessoa);
+       
+        if (pessoa.getSenha() == null ? confereSenha == null : pessoa.getSenha().equals(confereSenha)) {
+                    pessoaDAO().save(pessoa);
             endereco.setPessoa(pessoa);
             enderecoDAO().save(endereco);
             FacesContext.getCurrentInstance().addMessage(null,

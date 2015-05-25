@@ -30,8 +30,7 @@
                                 </p:selectOneMenu>
 
                                 <h:outputLabel for="telefone" value="Telefone.:"/>
-                                <p:inputMask id="telefone" size="40" mask="(99) 9999-9999" value="#{mbPessoa.pessoa.telefone}"
-                                             required="true" requiredMessage="O campo [Telefone] é obrigatório."/>
+                                <p:inputMask id="telefone" size="40" mask="(99) 9999-9999" value="#{mbPessoa.pessoa.telefone}" required="true" requiredMessage="O campo [Telefone] é obrigatório."/>
 
                                 <h:outputLabel for="email" value="Email.:"/>
                                 <p:inputText id="email" size="40" value="#{mbPessoa.pessoa.email}"
@@ -40,14 +39,27 @@
                                 </p:inputText>
 
                                 <h:outputLabel for="cpf" value="CPF.:"/>
-                                <p:inputText id="cpf" size="15" value="#{mbPessoa.pessoa.cpf}"
+                                <p:inputMask id="cpf" size="14" value="#{mbPessoa.pessoa.cpf}" mask="999.999.999-99"
                                              required="true" requiredMessage="O campo [CPF] é obrigatório.">
                                     <f:validator validatorId="cpfValidator"/>
-                                </p:inputText>
+                                </p:inputMask>
                                 <h:outputLabel for="dataNascimento" value="Data de Nascimento.:"/>
                                 <p:calendar id="dataNascimento" value="#{mbPessoa.pessoa.dataDeNascimento}"
                                             required="true" requiredMessage="O campo [Data de Nascimento] é obrigatório"
                                             locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyy" />
+                                
+                                <h:outputLabel for="usuario" value="Nome de Usuário.:"/>
+                                <p:inputText id="usuario" value="#{mbPessoa.pessoa.login}" size="30"/>
+                                
+                                <h:outputLabel for="senha" value="Senha.:"/>
+                                <p:password id="senha" size="30" maxlength="22" promptLabel="Digite sua Senha" value="#{mbPessoa.confereSenha}"
+                                            weakLabel="Senha Fraca" goodLabel="Senha Boa" strongLabel="Senha Forte" feedback="true"/>
+                                
+                                <h:outputLabel for="senhaconf2" value="Confirmar Senha.:"/>
+                                <p:password id="senhaconf2" size="30" value="#{mbPessoa.pessoa.senha}" maxlength="22"
+                                            promptLabel="Confirme sua Senha" weakLabel="Senha Fraca" validator="passwordValidator"
+                                            goodLabel="Senha Boa" strongLabel="Senha Forte" feedback="true">
+                                </p:password>
                                 
                           
                             </h:panelGrid>

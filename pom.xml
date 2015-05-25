@@ -29,7 +29,24 @@
             <version>1.0.6</version>
         </dependency>
  
-	
+        <!--DEPENDENCIAS SPRINT SECURITY-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>facelets-taglib-jsf20-spring</artifactId>
+            <version>0.5</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>4.0.1.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-security-acl</artifactId>
+                    <groupId>org.springframeworks.security</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         
         
 
@@ -54,17 +71,26 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.aopalliance</groupId>
+            <artifactId>com.springsource.org.aopaliance</artifactId>
+            <version>1.0.0</version>
+        
+        </dependency>
+        
+        
     </dependencies>
 
 
 	
-        <repositories>
-		<repository>
-			<id>prime-repo</id>
-			<name>Prime Repo</name>
-			<url>http://repository.primefaces.org</url>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+    </repositories>
  
     <build>
         <plugins>

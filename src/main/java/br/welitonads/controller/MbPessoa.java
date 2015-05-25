@@ -1,5 +1,6 @@
 package br.welitonads.controller;
 
+import br.welitonads.conversores.ConverterSHA1;
 import br.welitonads.model.DAO.HibernateDAO;
 import br.welitonads.model.DAO.InterfaceDAO;
 import br.welitonads.model.entities.Endereco;
@@ -18,6 +19,7 @@ import javax.faces.context.FacesContext;
 public class MbPessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private String confereSenha;
     private Pessoa pessoa = new Pessoa();
     private Endereco endereco = new Endereco();
     private List<Pessoa> pessoas;
@@ -58,11 +60,18 @@ public class MbPessoa implements Serializable {
     }
 
     private void insertPessoa() {
-        pessoaDAO().save(pessoa);
-        endereco.setPessoa(pessoa);
-        enderecoDAO().save(endereco);
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+        pessoa.setSenha(ConverterSHA1.cipher(pessoa.getSenha()));//converter a senha e codificar para o banco de dados.
+        if (pessoa.getSenha() == null ? confereSenha == null : pessoa.getSenha().equals(ConverterSHA1.cipher(confereSenha))) {
+            pessoa.setPermissao("ROLE_ADMIN");
+            pessoaDAO().save(pessoa);
+            endereco.setPessoa(pessoa);
+            enderecoDAO().save(endereco);
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Senhas não conferem.", ""));
+        }
     }
 
     private void updatePessoa() {
@@ -112,6 +121,14 @@ public class MbPessoa implements Serializable {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public String getConfereSenha() {
+        return confereSenha;
+    }
+
+    public void setConfereSenha(String confereSenha) {
+        this.confereSenha = confereSenha;
     }
 
 }
